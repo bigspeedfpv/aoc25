@@ -1,4 +1,3 @@
-import aoc25/input
 import gleam/dict
 import gleam/int
 import gleam/io
@@ -6,6 +5,9 @@ import gleam/list
 import gleam/option
 import gleam/result
 import gleam/string
+
+import aoc25/common
+import aoc25/input
 
 const day = 99
 
@@ -42,8 +44,7 @@ pub fn part2(input: String) -> Int {
 
 fn parse_input(input: String) -> #(List(Int), List(Int)) {
   input
-  |> string.split("\n")
-  |> list.filter(fn(l) { !string.is_empty(l) })
+  |> common.lines
   |> list.map(fn(line) {
     let assert Ok(#(l, r)) = string.split_once(line, "   ")
     let assert Ok(l) = int.parse(l)
