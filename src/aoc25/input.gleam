@@ -9,7 +9,10 @@ pub type TestCase {
 }
 
 fn read_inputs(for day: Int) -> Result(String, simplifile.FileError) {
-  let filename = "./inputs/day" <> int.to_string(day) <> ".txt"
+  let filename =
+    "./inputs/day"
+    <> string.pad_start(int.to_string(day), to: 2, with: "0")
+    <> ".txt"
   simplifile.read(from: filename)
 }
 
