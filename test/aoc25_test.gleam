@@ -1,4 +1,5 @@
 import aoc25/day01
+import aoc25/day02
 import gleam/int
 import gleam/io
 import gleam/list
@@ -32,6 +33,19 @@ pub fn day01_test() {
     let cb = case spec.part {
       1 -> day01.part1
       2 -> day01.part2
+      part -> panic as { "invalid part number " <> int.to_string(part) }
+    }
+    assert spec.expected == cb(spec.input)
+  })
+}
+
+pub fn day02_test() {
+  input.read_test_cases(for: 2)
+  |> list.each(fn(spec) {
+    io.println("Running test case for part " <> int.to_string(spec.part))
+    let cb = case spec.part {
+      1 -> day02.part1
+      2 -> day02.part2
       part -> panic as { "invalid part number " <> int.to_string(part) }
     }
     assert spec.expected == cb(spec.input)
